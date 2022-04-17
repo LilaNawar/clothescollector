@@ -4,22 +4,22 @@ from . import views
 urlpatterns = [
     path('', views.home, name="home"),
     path('about/', views.about, name='about'),
-    path('cats/', views.cats_index, name='index'),
-    path("cats/<int:cat_id>/", views.cats_details, name='detail'),
-    path("cats/create/", views.CatCreate.as_view(), name="cats_create"),
-    path('cats/<int:pk>/update/', views.CatUpdate.as_view(), name = "cats_update"),
-    path('cats/<int:pk>/delete/', views.CatDelete.as_view(), name = "cats_delete"),
-    path('cats/<int:cat_id>/add_feeding/', views.add_feeding, name='add_feeding'),
+    path('tops/', views.top_index, name='index'),
+    path("tops/<int:top_id>/", views.top_details, name='detail'),
+    path("tops/create/", views.TopCreate.as_view(), name="tops_create"),
+    path('tops/<int:pk>/update/', views.TopUpdate.as_view(), name = "tops_update"),
+    path('tops/<int:pk>/delete/', views.TopDelete.as_view(), name = "tops_delete"),
+    # path('tops/<int:top_id>/add_feeding/', views.add_feeding, name='add_feeding'),
 
     # Toys CRUD Operations
-    path('toys/', views.ToyList.as_view(), name='toys_index'),
-    path('toys/<int:pk>/', views.ToyDetail.as_view(), name='toys_detail'),
-    path('toys/create/', views.ToyCreate.as_view(), name='toys_create'),
-    path('toys/<int:pk>/update/', views.ToyUpdate.as_view(), name='toys_update'),
-    path('toys/<int:pk>/delete/', views.ToyDelete.as_view(), name='toys_delete'),
+    path('pants/', views.PantsList.as_view(), name='pants_index'),
+    path('pant/create/', views.PantCreate.as_view(), name='pants_create'),
+    path('pants/<int:pants_id>/', views.PantsList.as_view(), name='pants_detail'),
+    path('pants/<int:pk>/update/', views.PantsUpdate.as_view(), name='pants_update'),
+    path('pants/<int:pk>/delete/', views.PantsDelete.as_view(), name='pants_delete'),
 
     # Asscociate a toy with Cat (M:M)
-    path('cats/<int:cat_id>/assoc_toy/<int:toy_id>/', views.assoc_toy, name = 'assoc_toy'),
+    path('tops/<int:top_id>/assoc_outfit/<int:pants_id>/', views.assoc_outfit, name = 'assoc_outfit'),
     # Unasscociate a toy with Cat (M:M)
-    path('cats/<int:cat_id>/unassoc_toy/<int:toy_id>/', views.unassoc_toy, name='unassoc_toy')
+    path('tops/<int:top_id>/assoc_outfit/<int:pants_id>/', views.unassoc_outfit, name='unassoc_outfit')
 ]
