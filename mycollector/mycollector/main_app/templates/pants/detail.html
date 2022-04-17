@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block content %}
+
+<h1>Pant Detail</h1>
+
+<div class="card">
+  <div class="card-content">
+    <div class="flex-container">
+      <div>
+        <span class="card-title"> {{pant.name}} </span>
+        <p>Size: {{pant.size}}</p>
+        <p>Color: {{pant.size}}</p>
+
+      </div>
+
+    </div>
+
+    <div class="card-action">
+      <a href="{% url 'pants_update' pant.id %}">Edit</a>
+      <a href="{% url 'pants_delete' pant.id %}">Delete</a>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+
+
+{% endblock %}

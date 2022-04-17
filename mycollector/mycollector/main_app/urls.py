@@ -12,14 +12,14 @@ urlpatterns = [
     # path('tops/<int:top_id>/add_feeding/', views.add_feeding, name='add_feeding'),
 
     # Toys CRUD Operations
-    path('pants/', views.PantsList.as_view(), name='pants_index'),
+    path('pants/', views.pants_index, name='pants_index'),
     path('pant/create/', views.PantCreate.as_view(), name='pants_create'),
-    path('pants/<int:pants_id>/', views.PantsList.as_view(), name='pants_detail'),
+    path('pants/<int:pants_id>/', views.pants_details, name='pants_detail'),
     path('pants/<int:pk>/update/', views.PantsUpdate.as_view(), name='pants_update'),
     path('pants/<int:pk>/delete/', views.PantsDelete.as_view(), name='pants_delete'),
 
     # Asscociate a toy with Cat (M:M)
     path('tops/<int:top_id>/assoc_outfit/<int:pants_id>/', views.assoc_outfit, name = 'assoc_outfit'),
     # Unasscociate a toy with Cat (M:M)
-    path('tops/<int:top_id>/assoc_outfit/<int:pants_id>/', views.unassoc_outfit, name='unassoc_outfit')
+    path('tops/<int:top_id>/unassoc_outfit/<int:pants_id>/', views.unassoc_outfit, name='unassoc_outfit')
 ]

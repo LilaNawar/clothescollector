@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cat Collector</title>
+    <title>Clothing Collector</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
@@ -13,13 +13,13 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
-  <body>
-    <header class="navbar-fixed">
+  <body style="background-color: lightskyblue;">
+    <header class="navbar-fixed hover" style="background-color: black;  ">
       <nav>
-        <div class="nav-wrapper">
+        <div class="nav-wrapper" style="background-color: black;">
           <ul>
             <li>
-              <a href="{% url 'home' %}" class="left brand-logo"> Cat Collector </a>
+              <a href="{% url 'home' %}" class="left brand-logo"> Clothing Collector </a>
             </li>
           </ul>
 
@@ -28,14 +28,14 @@
               <a href="{% url 'about' %}">About</a>
             </li>
             <li>
-              <a href="{% url 'cats_create' %}">Add a Cat</a>
+              <a href="{% url 'tops_create' %}">Add a Top</a>
             </li>
             <li>
-                <a href="{% url 'index' %}">View All My Cats</a>
+                <a href="{% url 'index' %}">View All My Tops</a>
             </li>
 
-            <li><a href="{% url 'toys_create' %}">Add Toy</a></li>
-            <li><a href="{% url 'toys_index' %}">View all Toys</a></li>
+            <li><a href="{% url 'pants_create' %}">Add Pants</a></li>
+            <li><a href="{% url 'pants_index' %}">View all Pants</a></li>
 
           </ul>
         </div>
@@ -44,8 +44,11 @@
 
     <main class="container">{% block content %} {% endblock %}</main>
 
-    <footer class="page-footer">
-      <div class="right">All Rights Reserved, &copy; 2022 Cat Collector</div>
+
+    <footer class="page-footer" style="font-family: Arial; color: yellow; background-color: black;">
+      <div class="right">All Rights Reserved, &copy; 2022 Clothing Collector</div>
     </footer>
+
+
   </body>
 </html>

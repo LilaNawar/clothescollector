@@ -18,17 +18,14 @@ class Pants(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('pant_detail', kwargs={'pk': self.id})
+        return reverse('pants_detail', kwargs={'pants_id': self.id})
         
-    class Meta:
-      ordering = [-1]
-
 
 class Top(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=250)
     image = models.CharField(default=None, blank=True, null=True, max_length=2000)
-    # pants = models.ManyToManyField(Pant)
+    pants = models.ManyToManyField(Pants)
     size = models.CharField(max_length=100)
 
     def get_absolute_url(self):

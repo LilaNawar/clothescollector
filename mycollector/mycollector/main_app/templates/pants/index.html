@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block content %}
+
+<h1>Pants List</h1>
+
+{% for pants in pants %}
+
+<div class="card">
+
+<a href="{% url 'pants_detail' pants.id %}"> -->
+  <div class="card-content">
+    <div class="flex-container">
+      <div>
+        <span class="card-title"> {{pants.name}} </span>
+        <p>Size: {{pants.size}}</p>
+        <p>Description: {{pants.description}}</p>
+
+      </div>
+
+      <div class="right">
+        <img  width="100px" height="100px" src="{{pants.image}}" />
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+{% endfor %} {% endblock %}

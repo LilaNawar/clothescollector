@@ -1,3 +1,4 @@
+from typing import List
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
@@ -21,12 +22,12 @@ def about(request):
 
 def top_index(request):
     tops = Top.objects.all()
-    # SELECT * from Cat
     return render(request, 'tops/index.html', { 'tops': tops})
 
 def top_details(request, top_id):
     top = Top.objects.get(id=top_id)
-    return render(request, 'tops/detail.html', {'top': top})
+    pants = Pants.objects.all()
+    return render(request, 'tops/detail.html', {'top': top, 'pants': pants})
 
 class TopUpdate(UpdateView):
     model = Top
@@ -36,11 +37,13 @@ class TopDelete(DeleteView):
     model = Top
     success_url = '/tops/'
 
-class PantsList(ListView):
-    model = Pants
+def pants_index(request):
+    pants = Pants.objects.all()
+    return render(request, 'pants/index.html', {'pants': pants})
 
-class Pant(DetailView):
-    model = Pants
+def pants_details(request, pants_id):
+    pant = Pants.objects.get(id=pants_id)
+    return render(request, 'pants/detail.html', {'pant': pant})
 
 class PantCreate(CreateView):
     model = Pants
